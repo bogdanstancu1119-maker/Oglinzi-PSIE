@@ -1,0 +1,27 @@
+## Protocol OGLINZI-PSIE T+90z
+
+### Faza 1: Baseline T+0 → T+7z
+1. Zero soluții aplicate. Doar măsurare probleme.
+2. Input: data/probleme_z0.csv cu 14 zile date brute.
+3. Output: J_0 = 0.1628 pentru Cătun C, n=87.
+4. Commit tag v0.1-baseline. Date CC0.
+
+### Faza 2: Loop 1 T+8z → T+90z
+1. Principiu extras: "Roua există la scară locală"
+2. Acțiune: 10 plase 2x3m. |action_set|=1. Cost ~$100.
+3. Log zilnic 22:00. CSV update la 7z.
+4. Țintă: ΔJ < -0.1 la T+90z.
+5. Dacă ΔJ >= 0.0: retragere publică + delete repo. Vezi mai jos.
+
+## Retraction Protocol - Obligatoriu
+If at T+90 days ΔJ >= 0.0:
+1. Post public retraction on X tagging @xai @grok @elonmusk
+2. Text: "OGLINZI-PSIE hypothesis falsified. J_local did not decrease. Retracting all claims."
+3. Delete this repo within 24h
+4. Cease all claims about PSIE efficacy
+5. Raw data remains CC0 for audit
+
+Data decides. Not me. Not you. Not hope.
+
+Mars is Plan B. Earth is Plan A.
+1 continues.
