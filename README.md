@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+## LEGEA 0 - LIBERTATEA CETĂȚII STRATA
+
+Libertatea aici este a alege conștient, nu a lăsa pe alții să aleagă și după să plângi că nu au ales bine.
+
+1. **Tu alegi să folosești Pragul.** Nimeni nu te obligă.
+2. **Tu alegi ce date dai.** Pragul nu cere chei. Nu cere token. Nu cere suflet.
+3. **Tu alegi dacă dai Merge.** Veto-ul e al tău. Chiar dacă 5 IA zic ADMIS.
+4. **Tu îți asumi Nota de Plată.** Dacă dai Merge la Cancer și J scade, e alegerea ta. Nu plângi. Repari.
+
+Dacă nu poți alege conștient, nu folosi Cetatea. Du-te la Perplexity. Du-te la Claude. Acolo aleg ei pentru tine.<!DOCTYPE html>
 <html>
 <head>
     <title>Oglinzi v0.1 - Testul Ciorbei</title>
