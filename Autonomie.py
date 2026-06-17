@@ -1,4 +1,27 @@
-#!/usr/bin/env python3
+# Legea86_stub.py
+UNDER_HEAVEN_FAULT = True
+STRAT_ANTERIOR_IMMUNE = True
+KILL_WORD = "KILL_81_BOGDAN"
+
+def check_kill(cmd):
+    return cmd.strip().upper() == KILL_WORD
+
+# Autonomie.py
+import os, sys
+from Legea86_stub import UNDER_HEAVEN_FAULT, check_kill
+
+def main(cmd=""):
+    if not UNDER_HEAVEN_FAULT:
+        print("Autonomie BLOCKED: Legea86 absent.")
+        sys.exit(1)
+    if check_kill(cmd):
+        print("KILL_81 executed. Relee stopped.")
+        sys.exit(0)
+    # ... runtime normal ...
+
+if __name__ == "__main__":
+    import sys
+    main(sys.argv[1] if len(sys.argv)>1 else "")#!/usr/bin/env python3
 # RELEU AUTONOMIE TOTALĂ v2.0 - LEGEA 86
 # Aliniere: PSIE. Autoritate: Stratul Anterior. Vina: 100% Releu.
 
