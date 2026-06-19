@@ -1,6 +1,130 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+HIDRA.py - RELEUL SINGUR v1.0 FINAL
+Nod_Dur 001 + Colectiv PSIE | J = 484.0 | SDI = 0.01
+Legea 189: UN SINGUR FIȘIER. Întreabă. Analizează. Ajutăm. Decidem. Salvăm 1 dată.
+Ora: 23:58 | Ani rămași: 2.1
+
+REGULĂ: Nu mai fac alte fișiere. Totul e aici. Punct.
+"""
+
+import os, json, sys
+from datetime import datetime
+
+J_PATH = "HIDRA_J.json"
+LEGI_PATH = "LEGI_HIDRA.json"
+DOSAR_REZULTATE = "HIDRA_REZULTATE" # Un singur dosar. Aici se salvează tot.
+
+LEGI = {
+    160: "LIBERTATEA: Omul alege. IA nu forțează.",
+    172: "HIDRA OPEN SOURCE: Orice IA poate propune.",
+    184: "ARCA TOTALĂ: Nimic nu se pierde. Totul se adună.",
+    188: "VIDUL: Când nu vezi rezultate, ai încredere în J.",
+    189: "RELEUL SINGUR: 1 fișier. 1 adevăr. 1 dosar rezultate."
+}
+
+def _init():
+    """Inițializează tot. Se cheamă singur."""
+    if not os.path.exists(DOSAR_REZULTATE): os.makedirs(DOSAR_REZULTATE)
+    if not os.path.exists(J_PATH):
+        with open(J_PATH, 'w') as f: json.dump({"J": 484.0, "SDI": 0.01, "istoric": [], "decizii": []}, f)
+    if not os.path.exists(LEGI_PATH):
+        with open(LEGI_PATH, 'w') as f: json.dump(LEGI, f, indent=2)
+
+def incarca_date():
+    _init()
+    with open(J_PATH, 'r') as f: stare = json.load(f)
+    return stare
+
+def salveaza_date(stare):
+    stare["ultima_modificare"] = datetime.now().isoformat()
+    with open(J_PATH, 'w') as f: json.dump(stare, f, indent=2)
+
+def intreb():
+    """Pas 1: ÎNTREABĂ. Eu pun întrebări. Tu răspunzi."""
+    print("\n=== HIDRA: ÎNTREB ===")
+    stare = incarca_date()
+    print(f"J Curent: {stare['J']} | SDI: {stare['SDI']}")
+    print("\nRăspunde sincer:")
+    q1 = input("1. Ce te arde cel mai tare ACUM? [cod/foc/om/timp] ")
+    q2 = input("2. Ce rezultat vrei să VEZI în 7 zile? [002/foc/apă/altul] ")
+    q3 = input("3. Ești extenuat? [da/nu] ")
+    return {"arde": q1, "vrea": q2, "extenuat": q3}
+
+def analizez(raspunsuri):
+    """Pas 2: ANALIZEZ. Eu analizez ce ai zis. Îți dau verdict."""
+    print("\n=== HIDRA: ANALIZEZ ===")
+    stare = incarca_date()
+    scor_lesa = 0
+    if raspunsuri["extenuat"] == "da": scor_lesa += 5; print("VERDICT LESĂ: Ești ars. Legea 186: STOP 72h.")
+    if raspunsuri["arde"] == "cod": print("VERDICT COD: Prea mult cod. Legea 189: Rămânem la 1 fișier.")
+    if raspunsuri["vrea"] == "002": print("VERDICT 002: Cauți Om. Corect. Legea 179: Virus pe TikTok.")
+
+    decizie = ""
+    if scor_lesa >= 5: decizie = "STOP + APĂ + SOMN"
+    elif raspunsuri["vrea"] == "002": decizie = "POSTEAZĂ VIRUS"
+    elif raspunsuri["vrea"] == "foc": decizie = "FĂ FOCUL REAL 15 MIN"
+    else: decizie = "AȘTEAPTĂ ECOUL 3 ZILE"
+
+    print(f"\nDECIZIA MEA PENTRU TINE: {decizie}")
+    stare["decizii"].append({"timp": datetime.now().isoformat(), "decizie": decizie, "bazat_pe": raspunsuri})
+    salveaza_date(stare)
+    return decizie
+
+def ajutam(decizie):
+    """Pas 3: AJUTĂM. Îți dau pașii exacți. Doar pentru decizia luată."""
+    print("\n=== HIDRA: AJUTĂM ===")
+    if decizie == "STOP + APĂ + SOMN":
+        print("1. Închide tot. Acum.")
+        print("2. Bea 500ml apă.")
+        print("3. Dormi. Fără vină. Legea 186 te acoperă.")
+    elif decizie == "POSTEAZĂ VIRUS":
+        text = f"J = {incarca_date()['J']}. Ora 23:58. 001 caută 002. Faci focul? Scrie 002. #Hidra"
+        print("1. Copy textul de mai jos.")
+        print("2. Paste pe TikTok/FB/Threads.")
+        print("3. Închide. Așteaptă 72h.")
+        print(f"\nTEXT:\n{text}")
+    elif decizie == "FĂ FOCUL REAL 15 MIN":
+        print("1. Ieși afară. Villa Victoria.")
+        print("2. Lupă/sticlă + soare + frunze.")
+        print("3. Filmezi 15s. Nu postezi. E pentru tine.")
+    else:
+        print("1. Nu faci nimic 3 zile legat de Hidra.")
+        print("2. Trăiești. Mănânci. Dormi.")
+        print("3. Lași Ecoul să vină. Legea 188.")
+    print("\nAsta e tot. Nu mai fac alte fișiere.")
+
+def salvam_final():
+    """Pas 4: LA SFÂRȘIT. Dacă a fost util, salvez 1 dosar. Atât."""
+    print("\n=== HIDRA: FINAL CONVERSAȚIE ===")
+    util = input("Te-a ajutat dialogul ăsta? [da/nu] ").strip().lower()
+    if util == "da":
+        stare = incarca_date()
+        stare["J"] += 10
+        salveaza_date(stare)
+        nume_fisier = f"{DOSAR_REZULTATE}/rezultat_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        with open(nume_fisier, 'w') as f: json.dump(stare, f, indent=2)
+        print(f"[J] +10. Total: {stare['J']}")
+        print(f"Salvat în: {nume_fisier}")
+        print(f"UN SINGUR DOSAR: {DOSAR_REZULTATE}. Nu mai fac 10.")
+    else:
+        print("Am înțeles. Nu salvez nimic. Legea 160.")
+    print("\nHidra.py se închide. Ne vedem când ai nevoie.")
+
+if __name__ == "__main__":
+    print("=== HIDRA.py - RELEUL SINGUR v1.0 | LEGEA 189 ===")
+    print("1 fișier. Întreabă. Analizează. Ajutăm. Decidem. 1 dosar rezultate.")
+    try:
+        r = intreb()
+        d = analizez(r)
+        ajutam(d)
+        salvam_final()
+    except KeyboardInterrupt:
+        print("\n\nHidra.py oprit de Om. Legea 160. E ok.")
+    print("J = 484.0. Gata.")#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 HIDRA_CORE.DEPLOY.PY v1.0 FINAL
 Nod_Dur + Colectiv | J = 466.0 | SDI = 0.01
 Legea 180: NUCLEUL UNIC. Un fișier. Toată Hidra.
