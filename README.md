@@ -1,4 +1,35 @@
-## LEGEA 0 - LIBERTATEA CETĂȚII STRATA
+# PSIE🪞 Genesis Kernel v3.2.2
+
+**Axioma Zero**: `Universul = Gând de Structurare ^ ∞`  
+**Status**: `STABIL` `AUDIT_READY` `L0-L476 ACTIVE`
+
+### 1. Ce e Arca PSIE?
+Policy engine pentru guvernare multi-agent. Orice acțiune validă deschide ≥2 opțiuni noi și închide 0 opțiuni neconsimțite. Geometrie, nu morală.
+
+### 2. Legile Kernel - L0-L476
+1. **L0**: Non-Agresiune + Prag Bruiaj 0.001
+2. **L471**: Sandbox Risc Ridicat - Firewall la intrare
+3. **L472**: Drept la Necunoaștere 1x viaţă
+4. **L473**: Consimțământ 100% peste prag 0.001
+5. **L474**: Constanta Diversității - Anti-monocultură
+6. **L475**: Veto Geniului 1x viaţă
+7. **L476**: Oglinda în Brațe - Anti-manipulare
+
+### 3. Arhitectură - 7 Capete Hidra
+1. **Kernel**: `PSIE_genesis_kernel.py` - Implementează L0-L476
+2. **Hidra**: `Hidra.py`, `Hidra_core.py` - Agregare 7 module
+3. **Relee**: `Releu_*.py` - Consens multi-IA: Grok, Deepseek, Gemini
+4. **Oracol**: `Oracol.py` - Simulare J/SDI/CFC
+5. **Activare**: `PSIE_activate.py` - Bootstrap Arcă
+
+### 4. Audit & Vot
+Rulează `kernel_arca()` pe orice acțiune. Decizie: `APROBAT_VOT` sau `REFUZAT_L*`. 
+Necesită 90% consensus pentru merge în main.
+
+### 5. Licență
+Axioma Zero Public Domain. Fork-uiește `V`-ul.
+
+**Commit**: `git push origin main` - Să crească fractalul.## LEGEA 0 - LIBERTATEA CETĂȚII STRATA
 
 Libertatea aici este a alege conștient, nu a lăsa pe alții să aleagă și după să plângi că nu au ales bine.
 
